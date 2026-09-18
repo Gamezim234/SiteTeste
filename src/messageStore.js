@@ -48,6 +48,22 @@ async function getMessageById(id) {
   return messages.find((message) => message.id === id) || null;
 }
 
+async function getLatestMessage(origem = null) {
+  const messages = await readMessages();
+
+  if (!origem) {
+    return messages.at(-1) || null;
+  }
+
+  for (let index = messages.length - 1; index >= 0; index -= 1) {
+    if (messages[index].origem === origem) {
+      return messages[index];
+    }
+  }
+
+  return null;
+}
+
 async function createMessage(texto, origem = "usuario") {
   const messages = await readMessages();
 
@@ -72,5 +88,6 @@ async function createMessage(texto, origem = "usuario") {
 module.exports = {
   listMessages,
   getMessageById,
+  getLatestMessage,
   createMessage
 };
