@@ -1,0 +1,12 @@
+{
+  "name": "siteteste",
+  "version": "1.0.0",
+  "description": "Site simples de mensagens para testes de integração.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
