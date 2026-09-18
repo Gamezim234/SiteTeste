@@ -8,8 +8,44 @@
 </head>
 <body>
   <main class="container">
-    <h1>SiteTeste</h1>
-    <p>Base do site criada com sucesso.</p>
+    <header class="page-header">
+      <h1>SiteTeste</h1>
+      <p>Envie mensagens para serem armazenadas e consultadas depois.</p>
+    </header>
+
+    <section class="message-panel">
+      <form id="message-form">
+        <label for="message-input">Mensagem</label>
+        <textarea
+          id="message-input"
+          name="message"
+          rows="6"
+          maxlength="5000"
+          placeholder="Escreva alguma coisa..."
+          required
+        ></textarea>
+
+        <div class="form-actions">
+          <span id="status" aria-live="polite"></span>
+          <button type="submit">Enviar mensagem</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="history-panel">
+      <div class="history-header">
+        <h2>Mensagens</h2>
+        <button id="refresh-button" type="button" class="secondary-button">
+          Atualizar
+        </button>
+      </div>
+
+      <div id="message-list" class="message-list">
+        <p class="empty-state">Nenhuma mensagem carregada.</p>
+      </div>
+    </section>
   </main>
+
+  <script type="module" src="app.js"></script>
 </body>
 </html>
