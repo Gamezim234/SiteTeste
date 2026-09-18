@@ -20,6 +20,10 @@ function formatarData(valor) {
   return data.toLocaleString("pt-BR");
 }
 
+function nomeOrigem(origem) {
+  return origem === "assistente" ? "Assistente" : "Você";
+}
+
 function renderizarMensagens(mensagens) {
   list.replaceChildren();
 
@@ -40,7 +44,8 @@ function renderizarMensagens(mensagens) {
 
     const meta = document.createElement("div");
     meta.className = "message-meta";
-    meta.textContent = `ID: ${mensagem.id ?? "?"} · ${formatarData(mensagem.criadoEm)}`;
+    meta.textContent =
+      `${nomeOrigem(mensagem.origem)} · ID: ${mensagem.id ?? "?"} · ${formatarData(mensagem.criadoEm)}`;
 
     card.append(texto, meta);
     list.appendChild(card);
